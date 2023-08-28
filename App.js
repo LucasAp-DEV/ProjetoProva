@@ -1,10 +1,10 @@
 import React from 'react';
-import CatFacts from './src/components/screens/CatFacts';
+import ListPage from './src/components/screens/ListPage';
 
 
 export default function App() {
 
   return (
-    <CatFacts/>
+    <ListPage />
   );
 }
