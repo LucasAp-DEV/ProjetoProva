@@ -34,7 +34,7 @@ const PokemonItem = ({pokemon}) => {
 
     return (
         <View style={styles.pokemonCard}>
-            <Text style={styles.text}> Pokemin: {name}</Text>
+            <Text style={styles.text}> Pokemon: {name}</Text>
             <Text style={styles.text}> Tipo: {type}</Text>
         </View>
     )
