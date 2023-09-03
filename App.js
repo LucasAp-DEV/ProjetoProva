@@ -1,10 +1,22 @@
 import React from 'react';
-import ListPage from './src/components/screens/ListPage';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 
+
+import LoginScreen from './src/components/LoginScreen';
+import HomeScreen from './src/components/HomeScreen';
+import ItemDetailScreen from './src/components/ItemDetail';
+
+const Stack = createStackNavigator();
 
 export default function App() {
-
   return (
-    <ListPage />
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="ItemDetail" component={ItemDetailScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
