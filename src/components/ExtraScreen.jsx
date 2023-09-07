@@ -43,11 +43,10 @@ const ExtraScreen = ({ navigation }) => {
       try {
         const response = await axios.get('https://www.digi-api.com/api/v1/digimon');
         const digimonData = response.data.content;
-
         setDigimons(digimonData);
         setLoading(false);
       } catch (error) {
-        console.error('Erro ao obter a lista de Digimons:', error);
+        console.error(error);
         setLoading(false);
       }
     };
@@ -58,22 +57,16 @@ const ExtraScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {loading ? (
-        <Text style={styles.loadingText}>Carregando...</Text>
+        <Text style={styles.loadingText}>Carregando</Text>
       ) : (
         <FlatList
           data={digimons}
-          keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('ItemDetail', { itemName: item.name, itemImage: item.image });
-              }}
-            >
               <View style={styles.listItemContainer}>
                 <Image source={{ uri: item.image }} style={styles.image} />
-                <Text style={styles.name}>Nome: {item.name}</Text>
+                <Text style={styles.name}>Nome: </Text>
+                <Text style={styles.name}>{item.name}</Text>
               </View>
-            </TouchableOpacity>
           )}
         />
       )}
