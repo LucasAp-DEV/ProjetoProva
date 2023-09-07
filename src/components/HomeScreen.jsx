@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet, Button } from 'react-native';
 import axios from 'axios';
 
 const styles = StyleSheet.create({
@@ -27,6 +27,18 @@ const styles = StyleSheet.create({
   level: {
     fontSize: 20,
   },
+  buttonContainer: {
+    backgroundColor: '#0328fc',
+    padding: 15,
+    borderRadius: 2,
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
 });
 
 const HomeScreen = ({ navigation }) => {
@@ -49,6 +61,10 @@ const HomeScreen = ({ navigation }) => {
     navigation.navigate('ItemDetail', { item });
   };
 
+  const handleExtraScreenPress = () => {
+    navigation.navigate('ExtraScreen');
+  };
+
   const renderItem = ({ item }) => (
     <TouchableOpacity onPress={() => handleItemPress(item)}>
       <View style={styles.listItemContainer}>
@@ -63,6 +79,11 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View>
+       <TouchableOpacity
+        style={styles.buttonContainer}
+        onPress={handleExtraScreenPress}>
+        <Text style={styles.buttonText}>Ver Digimons mais recomendados</Text>
+      </TouchableOpacity>
       <FlatList
         data={items}
         renderItem={renderItem}

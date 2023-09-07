@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native';
 
 const LoginScreen = ({ navigation }) => {
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -45,7 +46,7 @@ const LoginScreen = ({ navigation }) => {
     if (!email || !password) {
       Alert.alert('Por favor, preencha todos os campos.');
     } else {
-      if (email == 'User' && password == 'password') {
+      if (email == 'User' && password == '123456') {
         navigation.navigate('Home');
       } else {
         Alert.alert('Credenciais inválidas. Tente novamente.');
