@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
 import axios from 'axios';
 
 const styles = StyleSheet.create({
